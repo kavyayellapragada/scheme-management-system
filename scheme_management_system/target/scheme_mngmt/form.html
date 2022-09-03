@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<style>
+body {
+  font-family: Arial;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+<body>
+
+<h3>Details Form</h3>
+<p>Fill the details to know the Government schemes relevant to you:</p>
+
+<div class="container">
+  <form action="UserServlet" method="post">
+
+    <label for="role">SELECT ROLE</label></br>
+    <input type="radio" name="role" style="display:inline">User</input>
+    <input type="radio" name="role" style="display:inline">Admin</input></br></br>
+
+    <label for="gender">GENDER</label>
+    <select id="gender" name="gender">
+      <option value="male">MALE</option>
+      <option value="female">FEMALE</option>
+      <option value="transgender">TRANSGENDER</option>
+    </select>
+
+    <label for="age">AGE</label>
+    <select id="age" name="age">
+      <option value="0-5 years">0-5 years</option>
+      <option value="6-19 years">6-19 years</option>
+      <option value="20-35 years ">20-35 years</option>
+      <option value="36-60 years">36-60 years</option>
+      <option value="above 60 years">Above 60 years</option>
+      </select>
+
+      <label for="marital_status">MARITAL STATUS</label>
+      <select id="marital_status" name="marital_status">
+        <option value="married">Married</option>
+        <option value="unmarried">Unmarried</option>
+        <option value="divorced">Divorced</option>
+        <option value="widowed">Widowed</option>
+        <option value="separated">Separated</option>
+        </select>
+
+        <label for="category">CATEGORY</label>
+        <select id="category" name="category">
+          <option value="ur">UR</option>
+          <option value="ews">EWS</option>
+          <option value="sc">SC</option>
+          <option value="st">ST</option>
+          <option value="bc">BC</option>
+          <option value="obc">OBC</option>
+          <option value="minority">Minority</option>
+          <option value="exservicemen">Ex-Servicemen</option>
+        </select>
+
+        <label for="education">HIGHEST EDUCATION</label>
+        <select id="education" name="education">
+          <option value="phd or similar">PhD or similar</option>
+          <option value="masters degree">Masters Degree</option>
+          <option value="bachelors degree">Bachelors Degree</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="below tenth">Below Tenth </option>
+          <option value="illiterate">Illiterate</option>
+          </select>
+
+          <label for="employment">EMPLOYMENT</label>
+          <select id="employment" name="employment">
+            <option value="student">Student</option>
+            <option value="government employee">Government employee</option>
+            <option value="private employee">Private employee</option>
+            <option value="self employed">Self employed</option>
+            <option value="un employed">Un employed</option>
+            </select>
+
+            <label for="annual_income">ANNUAL INCOME</label>
+            <select id="annual_income" name="annual_income">
+              <option value="upto 2.5 lakhs">Upto 2.5 lakhs</option>
+              <option value="2.5 to 5 lakhs">2.5 to 5 lakhs</option>
+              <option value="5 to 10 lakhs">5 to 10 lakhs</option>
+              <option value="above 10 lakhs">Above 10 lakhs</option>
+              </select>
+
+              <label for="scheme">SCHEME_CATEGORY</label>
+              <select id="scheme" name="scheme">
+                <option value="agriculture">Agriculture</option>
+                <option value="banking">Banking, Financial Services & Insurance </option>
+                <option value="business">Business & Entrepreneurship</option>
+                <option value="education">Education & Learning</option>
+                <option value="health">Health & Wellness</option>
+                <option value="housing">Housing & Shelter</option>
+                <option value="safety">Public safety, Law & Justice</option>
+                <option value="research">Research</option>
+                <option value="skill">Skill development & Employment</option>
+                <option value="welfare">Social welfare & Empowerment</option>
+                <option value="sports">Sports</option>
+                <option value="transport">Transport & Infrastructure</option>
+                <option value="sanitation">Tourism & Culture</option>
+                <option value="sanitation">Utility & Sanitation</option>
+                </select>
+
+
+
+
+
+
+
+
+
+
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+</body>
+</html>
