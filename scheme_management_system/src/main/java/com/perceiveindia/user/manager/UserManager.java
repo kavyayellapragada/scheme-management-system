@@ -7,7 +7,7 @@ import java.util.List;
 public interface UserManager {
     void addUser(User user1) throws SQLException;
     void updateUser(User user) throws SQLException;
-    List<User> listUsers();
+    List<User> listUsers(int n);
     void deleteUser(int id) throws SQLException;
     List<User> searchUsers(String keyword);
 }

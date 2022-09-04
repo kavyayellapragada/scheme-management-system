@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<style>
+body {
+  font-family: Arial;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+<body>
+
+<h3>Welcome Admin</h3>
+<p>Please select any ONE operation which you would like to perform:</p>
+
+<div class="container">
+  <form action="UserServlet" method="get">
+    <label for="cmd">LIST USERS</label>
+    <input type="text" name="cmd"/> <br/>
+    <input type="submit" value="Submit Query">
+  </form>
+  <form action="UserDeleteServlet" method="get">
+    <label for="cmd1">DELETE USER</label>
+    <input type="text" name="cmd1"/> <br/>
+    <input type="submit" value="Submit Query">
+  </form>
+  <form action="SchemeServlet" method="get">
+    <label for="cmd2">LIST SCHEMES</label>
+    <input type="text" name="cmd2"/> <br/>
+    <input type="submit" value="Submit Query">
+  </form>
+  <form action="SchemeServlet" method="post">
+    <label for="cmd3">ADD SCHEME</label>
+    <input type="text" name="cmd3"/> <br/>
+    <input type="submit" value="Submit Query">
+  </form>
+  <form action="SchemeDeleteServlet" method="delete">
+    <label for="cmd4">DELETE SCHEME</label>
+    <input type="text" name="cmd4"/> <br/>
+    <input type="submit" value="Submit Query">
+  </form>
+</div>
+
+</body>
+</html>

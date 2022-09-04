@@ -15,27 +15,17 @@ public class SchemeManagerImpl implements SchemeManager {
     }
 
     @Override
-    public List<Scheme> listCategoryWiseSchemes(String category_name) {
-        List<Scheme> schemeList = new ArrayList<>();
+    public ArrayList<String> listCategoryWiseSchemes(int n) {
+        ArrayList<String> schemeList = new ArrayList<>();
 
         try {
             Statement statement = connection.createStatement();
-            String list_schm = "SELECT * FROM "+category_name;
+            String list_schm = "SELECT * FROM need limit " + n;
             ResultSet resultSet = statement.executeQuery(list_schm);
             while(resultSet.next()) {
-                String role = "user";
-                String gender = resultSet.getString("gender");
-                String age = resultSet.getString("age");
-                String marital_status = resultSet.getString("maritalstatus");
-                String category = resultSet.getString("category");
-                String education = resultSet.getString("highesteducation");
-                String employement = resultSet.getString("employment");
-                String annual_income = resultSet.getString("annualincome");
-                String scheme = resultSet.getString("SchemeName");
+                String needname = resultSet.getString("needname");
                 String desc = resultSet.getString("description");
-                String beneficiary = resultSet.getString("beneficiary");
-                schemeList.add(new Scheme(role, gender, age, marital_status, category, education,
-                        employement, annual_income, scheme, desc, beneficiary));
+                schemeList.add(needname + " - " + desc);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -44,27 +34,16 @@ public class SchemeManagerImpl implements SchemeManager {
     }
 
     @Override
-    public void addScheme(Scheme scheme, String category) throws SQLException {
-        String insert_usr = "INSERT INTO " + category +
-                "(gender,age,maritalstatus,category,highesteducation,employment,annualincome,SchemeName," +
-                "description,beneficiary,role)" + " VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+    public void addScheme(String category) throws SQLException {
+        String insert_usr = "INSERT INTO need " + "(needname,description)" + " VALUES (?,?)";
         PreparedStatement prep = connection.prepareStatement(insert_usr);
-        prep.setString(1,scheme.getGender());
-        prep.setString(2,scheme.getAge());
-        prep.setString(3,scheme.getMaritalStatus());
-        prep.setString(4,scheme.getCategory());
-        prep.setString(5,scheme.getEducation());
-        prep.setString(6,scheme.getEmployement());
-        prep.setString(7,scheme.getAnnualIncome());
-        prep.setString(8,scheme.getSchemeName());
-        prep.setString(9,scheme.getSchemeDescription());
-        prep.setString(10,scheme.getBeneficiary());
-        prep.setString(11,scheme.getRole());
+        prep.setString(1,category);
+        prep.setString(2,"this table displays the schemes relevant to " + category);
         if(prep.executeUpdate()==1){
-            System.out.println("Data Inserted Successfully in Scheme table");
+            System.out.println("Data Inserted Successfully in Schemes table");
         }
         else{
-            System.out.println("Failed to insert into Scheme table");
+            System.out.println("Failed to insert into Schemes table");
         }
     }
 
@@ -95,42 +74,43 @@ public class SchemeManagerImpl implements SchemeManager {
     }
 
     @Override
-    public void deleteScheme(int ID, String category) throws SQLException {
-        Statement stmt = connection.createStatement();
-        String S_ID = String.valueOf(ID);
-        String del_schm = "DELETE FROM " + category + " WHERE id="+S_ID;
-        int code = stmt.executeUpdate(del_schm);
+    public void deleteScheme(String scheme) throws SQLException {
+        //Statement stmt = connection.createStatement();
+        //int code = stmt.executeUpdate(del_schm);
+        String del_schm = "DELETE FROM need" + " WHERE needname=?";
+        PreparedStatement prep = connection.prepareStatement(del_schm);
+        prep.setString(1,scheme);
+        int code = prep.executeUpdate();
         if(code == 1){
-            System.out.println("Scheme details with ID "+S_ID+" deleted successfully");
+            System.out.println("Scheme details with name "+scheme+" deleted successfully");
         }
         else{
-            System.out.println("Failed to delete record "+S_ID+" from Scheme table");
+            System.out.println("Failed to delete record "+scheme+" from Scheme table");
         }
     }
 
     @Override
-    public List<Scheme> searchSchemes(String keyword, String category_name) {
-        //This method searches users who opted for a particular scheme
-        List<Scheme> schmList = new ArrayList<>();
+    public ArrayList<String> searchSchemes(String scheme) {
+        //This method searches schemes opted by user on particular filters
+        ArrayList<String> schmList = new ArrayList<>();
         try {
             Statement statement = connection.createStatement();
-            String list_schm = "SELECT * FROM " + category_name + " s INNER JOIN user u" +
-                    " on u." + keyword + " =s." + keyword;
+            String list_schm = "SELECT DISTINCT SchemeName,description,beneficiary FROM " + scheme +
+                                " s INNER JOIN user u WHERE " +
+                                "s.role=u.role" + " AND " +
+                                "s.gender=u.gender" + " AND " +
+                                "s.age=u.age" + " AND " +
+                                "s.maritalstatus=u.maritalstatus" + " AND " +
+                                "s.category=u.category" + " AND " +
+                                "s.highesteducation=u.highesteducation" + " AND " +
+                                "s.employment=u.employment" + " AND " +
+                                "s.annualincome=u.annualincome" + ";";
             ResultSet resultSet = statement.executeQuery(list_schm);
             while(resultSet.next()) {
-                String role = "user";
-                String gender = resultSet.getString("gender");
-                String age = resultSet.getString("age");
-                String marital_status = resultSet.getString("maritalstatus");
-                String category = resultSet.getString("category");
-                String education = resultSet.getString("highesteducation");
-                String employement = resultSet.getString("employment");
-                String annual_income = resultSet.getString("annualincome");
-                String scheme = resultSet.getString("SchemeName");
-                String desc = resultSet.getString("description");
-                String beneficiary = resultSet.getString("beneficiary");
-                schmList.add(new Scheme(role, gender, age, marital_status, category, education,
-                        employement, annual_income, scheme, desc, beneficiary));
+                String scheme_name = resultSet.getString("SchemeName");
+                String scheme_desc = resultSet.getString("description");
+                String scheme_beneficiary = resultSet.getString("beneficiary");
+                schmList.add(scheme_name + " - " + scheme_desc + " - "+ scheme_beneficiary);
             }
         } catch (SQLException e) {
             e.printStackTrace();

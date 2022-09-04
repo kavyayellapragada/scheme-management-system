@@ -15,15 +15,15 @@ public class UserManagerImpl implements UserManager {
     }
 
     @Override
-    public List<User> listUsers() {
+    public List<User> listUsers(int n) {
         List<User> userList = new ArrayList<>();
 
         try {
             Statement statement = connection.createStatement();
-            String list_user = "SELECT * FROM user";
+            String list_user = "SELECT * FROM user limit " + n;
             ResultSet resultSet = statement.executeQuery(list_user);
             while(resultSet.next()) {
-                String role = "user";
+                String role = resultSet.getString("role");
                 String gender = resultSet.getString("gender");
                 String age = resultSet.getString("age");
                 String marital_status = resultSet.getString("maritalstatus");
@@ -66,7 +66,7 @@ public class UserManagerImpl implements UserManager {
     @Override
     public void updateUser(User user) throws SQLException {
         String update_usr = "UPDATE user SET gender=?,age=?,maritalstatus=?,category=?,highesteducation=?," +
-                "employment=?,annualincome=?,need=? WHERE role=Admin";
+                "employment=?,annualincome=?,need=?,role=?";
         PreparedStatement prep = connection.prepareStatement(update_usr);
         prep.setString(1,user.getGender());
         prep.setString(2,user.getAge());
@@ -87,15 +87,18 @@ public class UserManagerImpl implements UserManager {
 
     @Override
     public void deleteUser(int ID) throws SQLException {
-        Statement stmt = connection.createStatement();
-        String S_ID = String.valueOf(ID);
-        String del_usr = "DELETE FROM user WHERE user_id="+S_ID;
-        int code = stmt.executeUpdate(del_usr);
+        //Statement stmt = connection.createStatement();
+        //String S_ID = String.valueOf(ID);
+        //int code = stmt.executeUpdate(del_usr);
+        String del_usr = "DELETE FROM user WHERE user_id=?";
+        PreparedStatement prep = connection.prepareStatement(del_usr);
+        prep.setInt(1,ID);
+        int code = prep.executeUpdate();
         if(code == 1){
-            System.out.println("User details with ID "+S_ID+" deleted successfully");
+            System.out.println("User details with ID "+ID+" deleted successfully");
         }
         else{
-            System.out.println("Failed to delete record "+S_ID+" from User table");
+            System.out.println("Failed to delete record "+ID+" from User table");
         }
     }
 
