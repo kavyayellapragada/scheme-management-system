@@ -21,13 +21,16 @@ Scheme Management System is a web application for all relevant government scheme
 ### Home Page (Initial Opening Page)
 ![Home Page](https://raw.githubusercontent.com/kavyayellapragada/scheme-management-system/main/scheme_management_system/src/main/webapp/images/home1.png)
 
+### List of available scheme categories
 ![Home Page](https://raw.githubusercontent.com/kavyayellapragada/scheme-management-system/main/scheme_management_system/src/main/webapp/images/home2.png)
 
+### About
 ![Home Page](https://raw.githubusercontent.com/kavyayellapragada/scheme-management-system/main/scheme_management_system/src/main/webapp/images/home3.png)
 
+### How It Works
 ![Home Page](https://raw.githubusercontent.com/kavyayellapragada/scheme-management-system/main/scheme_management_system/src/main/webapp/images/home4.png)
 
-### Fill User Detail
+### Fill User Details
 ![User Page](https://raw.githubusercontent.com/kavyayellapragada/scheme-management-system/main/scheme_management_system/src/main/webapp/images/form.png)
 
 ### Admin Operations (List Users, Delete existing User, List Schemes, Add new Scheme, Delete existing Scheme)
