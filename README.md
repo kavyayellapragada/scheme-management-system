@@ -19,20 +19,20 @@ Scheme Management System is a web application for all relevant government scheme
 
 ## Application Overview
 ### Home Page (Initial Opening Page)
-![Home Page](https://github.com/kavyayellapragada/scheme-management-system/tree/main/scheme_management_system/src/main/webapp/images/home1.png)
+![Home Page](https://raw.githubusercontent.com/kavyayellapragada/scheme-management-system/main/scheme_management_system/src/main/webapp/images/home1.png)
 
-![Home Page](https://github.com/kavyayellapragada/scheme-management-system/tree/main/scheme_management_system/src/main/webapp/images/home2.png)
+![Home Page](https://raw.githubusercontent.com/kavyayellapragada/scheme-management-system/main/scheme_management_system/src/main/webapp/images/home2.png)
 
-![Home Page](https://github.com/kavyayellapragada/scheme-management-system/tree/main/scheme_management_system/src/main/webapp/images/home3.png)
+![Home Page](https://raw.githubusercontent.com/kavyayellapragada/scheme-management-system/main/scheme_management_system/src/main/webapp/images/home3.png)
 
-![Home Page](https://github.com/kavyayellapragada/scheme-management-system/tree/main/scheme_management_system/src/main/webapp/images/home4.png)
+![Home Page](https://raw.githubusercontent.com/kavyayellapragada/scheme-management-system/main/scheme_management_system/src/main/webapp/images/home4.png)
 
 ### Fill User Detail
-![User Page](https://github.com/kavyayellapragada/scheme-management-system/tree/main/scheme_management_system/src/main/webapp/images/form.png)
+![User Page](https://raw.githubusercontent.com/kavyayellapragada/scheme-management-system/main/scheme_management_system/src/main/webapp/images/form.png)
 
 ### Admin Operations (List Users, Delete existing User, List Schemes, Add new Scheme, Delete existing Scheme)
-![Admin Page](https://github.com/kavyayellapragada/scheme-management-system/tree/main/scheme_management_system/src/main/webapp/images/adminform.png)
+![Admin Page](https://raw.githubusercontent.com/kavyayellapragada/scheme-management-system/main/scheme_management_system/src/main/webapp/images/adminform.png)
 
 ### Project Schema
-![DB Page](https://github.com/kavyayellapragada/scheme-management-system/tree/main/scheme_management_system/src/main/webapp/images/projectdb.png)
+![DB Page](https://raw.githubusercontent.com/kavyayellapragada/scheme-management-system/main/scheme_management_system/src/main/webapp/images/projectdb.png)
 
