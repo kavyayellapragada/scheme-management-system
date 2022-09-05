@@ -9,13 +9,13 @@ Scheme Management System is a web application for all relevant government scheme
 * Java 11 or higher.
 * Maven
 * MySQL Database
-* Run on Tomcat 9
+* Tomcat 9
 
 ### How To Run
 * As it's a Maven Project, you can call `mvn clean install` in terminal(in project directory) to get a war file.(You can find it in **target** folder)
-* You need to have MySQL database to import tables from projectdb database
+* You need to have MySQL database to import tables from `projectdb` database
 * Default username is `root` and password is `root`.
-* Deploy the war file to the tomcat server and visit http://localhost:8080/scheme_mngmt in chrome browser
+* Deploy the war file to the tomcat server and visit http://localhost:8080/scheme_mngmt/project.html in chrome browser
 
 ## Application Overview
 ### Home Page (Initial Opening Page)
